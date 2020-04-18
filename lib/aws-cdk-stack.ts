@@ -1,5 +1,6 @@
 import * as cdk from '@aws-cdk/core';
-import * as eb from '@aws-cdk/aws-elasticbeanstalk';
+import * as EB from '@aws-cdk/aws-elasticbeanstalk';
+import * as IAM from '@aws-cdk/aws-iam';
 import * as Codebuild from '@aws-cdk/aws-codebuild';
 import * as cfg from './config';
 
@@ -11,12 +12,12 @@ export class AwsCdkStack extends cdk.Stack {
     const platform = this.node.tryGetContext('platform');
 
     // beanstalk project setup
-    const ebApp = new eb.CfnApplication(this, `${cfg.APP_NAME}-app`, {
+    const ebApp = new EB.CfnApplication(this, `${cfg.APP_NAME}-app`, {
       applicationName: cfg.APP_NAME,
     });
 
     // role for ec2 instance
-    const options: eb.CfnEnvironment.OptionSettingProperty[] = [
+    const options: EB.CfnEnvironment.OptionSettingProperty[] = [
       {
         namespace: 'aws:autoscaling:launchconfiguration',
         optionName: 'IamInstanceProfile',
@@ -24,7 +25,7 @@ export class AwsCdkStack extends cdk.Stack {
       },
     ];
 
-    const ebEnv = new eb.CfnEnvironment(this, 'develop-env', {
+    const ebEnv = new EB.CfnEnvironment(this, `${cfg.APP_NAME}-env`, {
       // default environmentName is `develop`
       environmentName: cfg.APP_STAGE_NAME,
       applicationName: ebApp.applicationName,
@@ -52,11 +53,11 @@ export class AwsCdkStack extends cdk.Stack {
       reportBuildStatus: true,
     });
 
-    const project = new Codebuild.Project(this, `${cfg.APP_NAME}-build`, {
+    const project = new Codebuild.Project(this, cfg.APP_NAME, {
       buildSpec: Codebuild.BuildSpec.fromSourceFilename('buildspec.yml'),
       projectName: `${cfg.APP_NAME}-build`,
       environment: {
-        buildImage: Codebuild.LinuxBuildImage.STANDARD_3_0,
+        buildImage: Codebuild.LinuxBuildImage.AMAZON_LINUX_2_3,
         computeType: Codebuild.ComputeType.SMALL,
         environmentVariables: {
           EB_STAGE: {
@@ -69,33 +70,10 @@ export class AwsCdkStack extends cdk.Stack {
       timeout: cdk.Duration.minutes(20),
     });
 
-    // // iam policy to push your build to S3
-    // project.addToRolePolicy(
-    //   new IAM.PolicyStatement({
-    //     effect: IAM.Effect.ALLOW,
-    //     resources: [bucket.bucketArn, `${bucket.bucketArn}/*`],
-    //     actions: [
-    //       's3:GetBucket*',
-    //       's3:List*',
-    //       's3:GetObject*',
-    //       's3:DeleteObject',
-    //       's3:PutObject',
-    //     ],
-    //   })
-    // );
-    // // iam policy to invalidate cloudfront distribution's cache
-    // project.addToRolePolicy(
-    //   new IAM.PolicyStatement({
-    //     effect: IAM.Effect.ALLOW,
-    //     resources: ['*'],
-    //     actions: [
-    //       'cloudfront:CreateInvalidation',
-    //       'cloudfront:GetDistribution*',
-    //       'cloudfront:GetInvalidation',
-    //       'cloudfront:ListInvalidations',
-    //       'cloudfront:ListDistributions',
-    //     ],
-    //   })
-    // );
+    project.role.addManagedPolicy(
+      IAM.ManagedPolicy.fromAwsManagedPolicyName(
+        'AWSElasticBeanstalkFullAccess'
+      )
+    );
   }
 }
