@@ -1,6 +1,6 @@
-# SPA Deploy Codebuild
+# Beanstalk Deploy Codebuild
 
-This is an [aws-cdk](https://aws.amazon.com/cdk/) project where you can deploy any SPA (React, Angular, Vue, etc.) via Codebuild on S3 and served via Cloudfront.
+This is an [aws-cdk](https://aws.amazon.com/cdk/) project where you can deploy your Node application on Elastic Beanstalk via Codebuild.
 
 **_Note_**: This configuration is for GitHub only. For Bitbucket, you can edit the source accordingly.
 
@@ -16,11 +16,15 @@ This is an [aws-cdk](https://aws.amazon.com/cdk/) project where you can deploy a
 
 2. Run `npm install`
 
-3. Run `npm run deploy -- --profile profileName` to deploy the stack to your specified region. You can skip providing the profile parameter if the profile name is `default`.
+3. Run `npm run deploy -- --profile profileName` to deploy the stack to your specified region. You can omit the profile parameter if the profile name is `default`.
 
-4. You can start the build from the console in `Codebuild` and view your website on the Cloudfront provided URL!
+4. You can start the build from the console in `Codebuild` and your Node application works the Beanstalk provided URL!
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
+
+- In the `cdk.json` the platform parameter is passed to use the environment for Node 10. You can replace that with any environent of your choice.
+
+You can get the list of platforms using `aws elasticbeanstalk list-platform-versions`.
 
 ## Commands
 
