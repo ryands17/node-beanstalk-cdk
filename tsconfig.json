@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "commonjs",
+    "lib": ["es2018", "DOM"],
+    "declaration": true,
+    "strict": false,
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false,
+    "typeRoots": ["./node_modules/@types", "./typings.d.ts"]
+  },
+  "exclude": ["cdk.out"]
+}

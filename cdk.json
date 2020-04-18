@@ -1,0 +1,4 @@
+{
+  "app": "npx ts-node bin/aws-cdk.ts",
+  "platform": "arn:aws:elasticbeanstalk:us-east-1::platform/(BETA) Node.js 10 running on 64bit Amazon Linux 2/0.1.0"
+}
