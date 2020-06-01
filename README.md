@@ -2,6 +2,8 @@
 
 This is an [aws-cdk](https://aws.amazon.com/cdk/) project where you can deploy your Node application on Elastic Beanstalk via Codebuild.
 
+I have created a blog post on understanding how this works [here](https://dev.to/ryands17/deploying-a-node-app-to-beanstalk-using-aws-cdk-typescript-3b8d).
+
 **_Note_**: This configuration is for GitHub only. For Bitbucket, you can edit the source accordingly.
 
 **Prerequisites**
