@@ -1,22 +1,13 @@
-import {
-  expect as expectCDK,
-  matchTemplate,
-  MatchStyle,
-} from '@aws-cdk/assert';
+import { config } from 'dotenv';
+config();
 import * as cdk from '@aws-cdk/core';
-import AwsCdk = require('../lib/aws-cdk-stack');
+import { SynthUtils } from '@aws-cdk/assert';
+import { AwsCdkStack } from '../lib/aws-cdk-stack';
 
-test('Empty Stack', () => {
+const stackName = 'Node-EB-Deploy';
+
+test('snapshot works correctly', () => {
   const app = new cdk.App();
-  // WHEN
-  const stack = new AwsCdk.AwsCdkStack(app, 'SPA-deploy');
-  // THEN
-  expectCDK(stack).to(
-    matchTemplate(
-      {
-        Resources: {},
-      },
-      MatchStyle.EXACT
-    )
-  );
+  const stack = new AwsCdkStack(app, stackName);
+  expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
 });

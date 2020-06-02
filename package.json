@@ -1,6 +1,7 @@
 {
   "name": "node-deployment-cdk",
   "version": "0.1.0",
+  "license": "MIT",
   "bin": {
     "aws-cdk": "bin/aws-cdk.js"
   },
@@ -13,10 +14,10 @@
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.36.1",
+    "@aws-cdk/assert": "1.42.0",
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.9",
-    "aws-cdk": "^1.36.1",
+    "aws-cdk": "1.42.0",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.7",
@@ -26,10 +27,10 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
-    "@aws-cdk/aws-codebuild": "^1.36.1",
-    "@aws-cdk/aws-elasticbeanstalk": "^1.36.1",
-    "@aws-cdk/aws-iam": "^1.36.1",
-    "@aws-cdk/core": "^1.36.1",
+    "@aws-cdk/aws-codebuild": "1.42.0",
+    "@aws-cdk/aws-elasticbeanstalk": "1.42.0",
+    "@aws-cdk/aws-iam": "1.42.0",
+    "@aws-cdk/core": "1.42.0",
     "dotenv": "^8.2.0",
     "source-map-support": "^0.5.19"
   },
