@@ -31,8 +31,6 @@ export class AwsCdkStack extends cdk.Stack {
       applicationName: ebApp.applicationName,
       platformArn: platform,
       optionSettings: options,
-      solutionStackName:
-        '64bit Amazon Linux 2 v0.1.0 running Node.js 10 (BETA)',
     });
 
     ebEnv.addDependsOn(ebApp);
