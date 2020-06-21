@@ -210,7 +210,6 @@ Object {
             "Value": "aws-elasticbeanstalk-ec2-role",
           },
         ],
-        "SolutionStackName": "64bit Amazon Linux 2 v0.1.0 running Node.js 10 (BETA)",
       },
       "Type": "AWS::ElasticBeanstalk::Environment",
     },
