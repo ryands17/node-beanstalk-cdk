@@ -6,7 +6,6 @@
     "aws-cdk": "bin/aws-cdk.js"
   },
   "scripts": {
-    "postinstall": "npm run test",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
