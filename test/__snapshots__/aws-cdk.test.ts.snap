@@ -43,7 +43,7 @@ Object {
                 "Type": "EVENT",
               },
               Object {
-                "Pattern": "^refs/heads/master$",
+                "Pattern": "^refs/heads/main$",
                 "Type": "HEAD_REF",
               },
             ],
