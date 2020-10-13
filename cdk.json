@@ -1,6 +1,3 @@
 {
-  "app": "npx ts-node bin/aws-cdk.ts",
-  "context": {
-    "platform": "arn:aws:elasticbeanstalk:us-east-1::platform/Node.js 12 running on 64bit Amazon Linux 2/5.0.2"
-  }
+  "app": "npx ts-node bin/aws-cdk.ts"
 }
