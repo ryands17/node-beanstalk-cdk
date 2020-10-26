@@ -2,13 +2,13 @@ import { config } from 'dotenv';
 config();
 import * as cdk from '@aws-cdk/core';
 import * as Codebuild from '@aws-cdk/aws-codebuild';
-import { expect as expecCDK, haveResourceLike } from '@aws-cdk/assert';
+import { expect as expectCDK, haveResourceLike } from '@aws-cdk/assert';
 import { AwsCdkStack } from '../lib/aws-cdk-stack';
 import { envVars } from '../lib/config';
 
 test('creates an Elastic Beanstalk app', () => {
   const stack = createStack();
-  expecCDK(stack).to(
+  expectCDK(stack).to(
     haveResourceLike('AWS::ElasticBeanstalk::Application', {
       ApplicationName: 'node-eb',
     })
@@ -17,7 +17,7 @@ test('creates an Elastic Beanstalk app', () => {
 
 test('creates an Elastic Beanstalk environment', () => {
   const stack = createStack();
-  expecCDK(stack).to(
+  expectCDK(stack).to(
     haveResourceLike('AWS::ElasticBeanstalk::Environment', {
       ApplicationName: 'node-eb',
       EnvironmentName: 'main',
@@ -27,7 +27,7 @@ test('creates an Elastic Beanstalk environment', () => {
 
 test('creates a Codebuild project', () => {
   const stack = createStack();
-  expecCDK(stack).to(
+  expectCDK(stack).to(
     haveResourceLike('AWS::CodeBuild::Project', {
       Artifacts: {
         Type: 'NO_ARTIFACTS',
