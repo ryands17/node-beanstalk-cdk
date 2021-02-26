@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack should synth to expected snaphsot 1`] = `
+CloudFormationStackArtifact {
+  "_dependencyIDs": Array [],
+  "_deps": Array [],
+  "assembly": CloudAssembly {
+    "artifacts": Array [
+      [Circular],
+      TreeCloudArtifact {
+        "_dependencyIDs": Array [],
+        "_deps": Array [],
+        "assembly": [Circular],
+        "file": "tree.json",
+        "id": "Tree",
+        "manifest": Object {
+          "properties": Object {
+            "file": "tree.json",
+          },
+          "type": "cdk:tree",
+        },
+        "messages": Array [],
+      },
+    ],
+    "directory": "cdk.out",
+    "manifest": Object {
+      "artifacts": Object {
+        "Node-EB-Deploy": Object {
+          "environment": "aws://unknown-account/unknown-region",
+          "metadata": Object {
+            "/Node-EB-Deploy/node-eb-app": Array [
+              Object {
+                "data": "nodeebapp",
+                "type": "aws:cdk:logicalId",
+              },
+            ],
+            "/Node-EB-Deploy/node-eb-env": Array [
+              Object {
+                "data": "nodeebenv",
+                "type": "aws:cdk:logicalId",
+              },
+            ],
+            "/Node-EB-Deploy/node-eb/Resource": Array [
+              Object {
+                "data": "nodeeb21AA198B",
+                "type": "aws:cdk:logicalId",
+              },
+            ],
+            "/Node-EB-Deploy/node-eb/Role/DefaultPolicy/Resource": Array [
+              Object {
+                "data": "nodeebRoleDefaultPolicy56622678",
+                "type": "aws:cdk:logicalId",
+              },
+            ],
+            "/Node-EB-Deploy/node-eb/Role/Resource": Array [
+              Object {
+                "data": "nodeebRole83F66418",
+                "type": "aws:cdk:logicalId",
+              },
+            ],
+          },
+          "properties": Object {
+            "templateFile": "Node-EB-Deploy.template.json",
+          },
+          "type": "aws:cloudformation:stack",
+        },
+        "Tree": Object {
+          "properties": Object {
+            "file": "tree.json",
+          },
+          "type": "cdk:tree",
+        },
+      },
+      "version": "9.0.0",
+    },
+    "runtime": Object {
+      "libraries": Object {},
+    },
+    "version": "9.0.0",
+  },
+  "assets": Array [],
+  "assumeRoleArn": undefined,
+  "bootstrapStackVersionSsmParameter": undefined,
+  "cloudFormationExecutionRoleArn": undefined,
+  "displayName": "Node-EB-Deploy",
+  "environment": Object {
+    "account": "unknown-account",
+    "name": "aws://unknown-account/unknown-region",
+    "region": "unknown-region",
+  },
+  "id": "Node-EB-Deploy",
+  "manifest": Object {
+    "environment": "aws://unknown-account/unknown-region",
+    "metadata": Object {
+      "/Node-EB-Deploy/node-eb-app": Array [
+        Object {
+          "data": "nodeebapp",
+          "type": "aws:cdk:logicalId",
+        },
+      ],
+      "/Node-EB-Deploy/node-eb-env": Array [
+        Object {
+          "data": "nodeebenv",
+          "type": "aws:cdk:logicalId",
+        },
+      ],
+      "/Node-EB-Deploy/node-eb/Resource": Array [
+        Object {
+          "data": "nodeeb21AA198B",
+          "type": "aws:cdk:logicalId",
+        },
+      ],
+      "/Node-EB-Deploy/node-eb/Role/DefaultPolicy/Resource": Array [
+        Object {
+          "data": "nodeebRoleDefaultPolicy56622678",
+          "type": "aws:cdk:logicalId",
+        },
+      ],
+      "/Node-EB-Deploy/node-eb/Role/Resource": Array [
+        Object {
+          "data": "nodeebRole83F66418",
+          "type": "aws:cdk:logicalId",
+        },
+      ],
+    },
+    "properties": Object {
+      "templateFile": "Node-EB-Deploy.template.json",
+    },
+    "type": "aws:cloudformation:stack",
+  },
+  "messages": Array [],
+  "name": "Node-EB-Deploy",
+  "originalName": "Node-EB-Deploy",
+  "parameters": Object {},
+  "requiresBootstrapStackVersion": undefined,
+  "stackName": "Node-EB-Deploy",
+  "stackTemplateAssetObjectUrl": undefined,
+  "tags": Object {},
+  "templateFile": "Node-EB-Deploy.template.json",
+  "terminationProtection": undefined,
+}
+`;

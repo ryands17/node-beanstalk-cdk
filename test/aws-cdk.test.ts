@@ -2,9 +2,19 @@ import { config } from 'dotenv';
 config();
 import * as cdk from '@aws-cdk/core';
 import * as Codebuild from '@aws-cdk/aws-codebuild';
-import { expect as expectCDK, haveResourceLike } from '@aws-cdk/assert';
+import {
+  expect as expectCDK,
+  haveResourceLike,
+  SynthUtils,
+} from '@aws-cdk/assert';
 import { AwsCdkStack } from '../lib/aws-cdk-stack';
 import { envVars } from '../lib/config';
+
+test('Stack should synth to expected snaphsot', () => {
+  const stack = createStack({ outdir: 'cdk.out', stackTraces: false });
+  const snapshot = SynthUtils.synthesize(stack);
+  expect(snapshot).toMatchSnapshot();
+});
 
 test('creates an Elastic Beanstalk app', () => {
   const stack = createStack();
@@ -64,8 +74,8 @@ test('creates a Codebuild project', () => {
   );
 });
 
-function createStack() {
+function createStack(props?: cdk.AppProps) {
   const stackName = 'Node-EB-Deploy';
-  const app = new cdk.App();
+  const app = new cdk.App(props);
   return new AwsCdkStack(app, stackName);
 }
