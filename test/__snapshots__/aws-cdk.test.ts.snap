@@ -26,6 +26,7 @@ CloudFormationStackArtifact {
     "manifest": Object {
       "artifacts": Object {
         "Node-EB-Deploy": Object {
+          "displayName": "Node-EB-Deploy",
           "environment": "aws://unknown-account/unknown-region",
           "metadata": Object {
             "/Node-EB-Deploy/node-eb-app": Array [
@@ -61,6 +62,7 @@ CloudFormationStackArtifact {
           },
           "properties": Object {
             "templateFile": "Node-EB-Deploy.template.json",
+            "validateOnSynth": false,
           },
           "type": "aws:cloudformation:stack",
         },
@@ -71,12 +73,12 @@ CloudFormationStackArtifact {
           "type": "cdk:tree",
         },
       },
-      "version": "9.0.0",
+      "version": "11.0.0",
     },
     "runtime": Object {
       "libraries": Object {},
     },
-    "version": "9.0.0",
+    "version": "11.0.0",
   },
   "assets": Array [],
   "assumeRoleArn": undefined,
@@ -90,6 +92,7 @@ CloudFormationStackArtifact {
   },
   "id": "Node-EB-Deploy",
   "manifest": Object {
+    "displayName": "Node-EB-Deploy",
     "environment": "aws://unknown-account/unknown-region",
     "metadata": Object {
       "/Node-EB-Deploy/node-eb-app": Array [
@@ -125,6 +128,7 @@ CloudFormationStackArtifact {
     },
     "properties": Object {
       "templateFile": "Node-EB-Deploy.template.json",
+      "validateOnSynth": false,
     },
     "type": "aws:cloudformation:stack",
   },
@@ -138,5 +142,6 @@ CloudFormationStackArtifact {
   "tags": Object {},
   "templateFile": "Node-EB-Deploy.template.json",
   "terminationProtection": undefined,
+  "validateOnSynth": false,
 }
 `;
