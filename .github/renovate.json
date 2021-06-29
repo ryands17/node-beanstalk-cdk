@@ -18,8 +18,11 @@
     },
     {
       "packagePatterns": [".*aws-cdk"],
-      "groupName": "cdk deps",
-      "automerge": true
+      "groupName": "cdk deps"
+    },
+    {
+      "packagePatterns": [".*jest"],
+      "groupName": "testing"
     }
   ]
 }
