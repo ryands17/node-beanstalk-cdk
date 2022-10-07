@@ -33,7 +33,7 @@
     "@aws-cdk/aws-elasticbeanstalk": "1.159.0",
     "@aws-cdk/aws-iam": "1.159.0",
     "@aws-cdk/core": "1.159.0",
-    "dotenv": "16.0.2",
+    "dotenv": "16.0.3",
     "source-map-support": "0.5.21"
   },
   "lint-staged": {
